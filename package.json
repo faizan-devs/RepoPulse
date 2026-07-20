@@ -1,0 +1,49 @@
+{
+  "name": "repopulse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Repository intelligence platform that analyzes GitHub repositories and provides actionable insights.",
+  "type": "module",
+  "packageManager": "pnpm@11.14.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "git clean -xfd node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faizan-devs/repopulse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/faizan-devs/repopulse/issues"
+  },
+  "homepage": "https://github.com/faizan-devs/repopulse#readme",
+  "keywords": [
+    "github",
+    "analytics",
+    "developer-tools",
+    "repository",
+    "insights",
+    "typescript",
+    "pnpm",
+    "monorepo"
+  ],
+  "author": "Faizan Alam",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.5",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.64.0"
+  }
+}
