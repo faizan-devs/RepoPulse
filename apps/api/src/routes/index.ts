@@ -10,7 +10,7 @@ router.get('/', (_req, res) => {
     });
 });
 
-router.get('/health', (_req, res) => {
+router.get('/test', (_req, res) => {
     res.json({
         success: 'true',
         message: '600ms last latency',
