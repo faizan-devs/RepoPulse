@@ -4,7 +4,6 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import router from './routes/index.js';
-import { success } from 'zod';
 
 export const app = express();
 
