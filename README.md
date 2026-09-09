@@ -1,45 +1,58 @@
-## RepoPulse
+# Security Policy
 
-RepoPulse is an AI-powered repository health analyzer that goes beyond basic GitHub statistics. Instead of showing raw numbers like commits or open issues, it analyzes repository trends over time to identify risks, contributor activity, maintainer workload, and overall project health.
+## Supported Versions
 
-### Features
+RepoPulse is currently under active development.
 
-- 📈 Repository health analysis
-- 👥 Contributor insights
-- ⏱️ Pull request review & merge latency
-- 🐞 Issue response time tracking
-- 🚌 Bus factor analysis
-- 📊 Historical trend comparison
-- 🤖 AI-generated health summaries
+Security fixes will generally be applied to the latest version of the project.
 
-### Tech Stack
+| Version        | Supported |
+| -------------- | --------- |
+| Latest         | ✅        |
+| Older versions | ❌        |
 
-- Node.js
-- TypeScript
-- PostgreSQL
-- GitHub API
-- OpenAI API (for summaries)
+## Reporting a Vulnerability
 
-### Project Status
+If you discover a security vulnerability in RepoPulse, please report it privately rather than creating a public GitHub issue.
 
-🚧 Work in Progress
+Please include:
 
-### Vision
+- A description of the vulnerability
+- Steps to reproduce the issue
+- Potential impact
+- Any relevant logs, screenshots, or proof of concept
 
-Help founders, engineering managers, maintainers, and contributors understand the real health of a repository through meaningful insights instead of raw metrics.
+Do not include passwords, API keys, access tokens, or other sensitive information in the report.
 
-### Roadmap
+## Security Issues
 
-- [ ] GitHub repository integration
-- [ ] Commit analytics
-- [ ] Issue analytics
-- [ ] Pull request analytics
-- [ ] Contributor analytics
-- [ ] Repository Health Score
-- [ ] AI-powered repository summary
-- [ ] Dashboard
-- [ ] Historical trend analysis
+Please do not disclose security vulnerabilities publicly until they have been investigated and, where appropriate, fixed.
 
-### License
+We will review legitimate security reports and work toward resolving confirmed vulnerabilities.
 
-MIT
+## Security Practices
+
+RepoPulse aims to follow secure development practices, including:
+
+- Never committing secrets or API keys
+- Validating external input
+- Using environment variables for secrets
+- Applying authentication and authorization where required
+- Protecting GitHub access tokens
+- Limiting access to user data
+- Keeping dependencies updated
+- Running automated tests before releases
+
+## Scope
+
+Security reports may include vulnerabilities affecting:
+
+- RepoPulse API
+- Authentication and authorization
+- GitHub integrations
+- Database access
+- API endpoints
+- Sensitive user or repository data
+- Dependencies and infrastructure
+
+Thank you for helping keep RepoPulse secure.
