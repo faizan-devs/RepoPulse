@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :root {
-    --background: #0a0a0a;
+    --background: #070707;
     --foreground: #ffffff;
 }
 
@@ -11,6 +11,7 @@
 
 html {
     scroll-behavior: smooth;
+    background: var(--background);
 }
 
 body {
@@ -18,4 +19,280 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   REPOPULSE GRID
+========================================================= */
+
+@keyframes repopulse-grid {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(72px);
+    }
+}
+
+/* =========================================================
+   CENTRAL ANALYSIS CORE
+========================================================= */
+
+@keyframes repopulse-ring {
+    0%,
+    100% {
+        transform: scale(0.94);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 0.8;
+    }
+}
+
+@keyframes repopulse-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes repopulse-core {
+    0%,
+    100% {
+        transform: scale(0.7);
+        opacity: 0.65;
+        box-shadow:
+            0 0 12px rgba(255, 255, 255, 0.35),
+            0 0 30px rgba(255, 255, 255, 0.15);
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+        box-shadow:
+            0 0 15px rgba(255, 255, 255, 0.9),
+            0 0 45px rgba(255, 255, 255, 0.45),
+            0 0 90px rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* =========================================================
+   DATA FLOW
+========================================================= */
+
+@keyframes data-flow {
+    0% {
+        stroke-dashoffset: 120;
+        opacity: 0.3;
+    }
+
+    25% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.9;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0.3;
+    }
+}
+
+/* =========================================================
+   DATA PARTICLES
+========================================================= */
+
+@keyframes repopulse-particle {
+    0% {
+        transform: translateX(0) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(40px) scale(1);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(420px) scale(0.7);
+        opacity: 0;
+    }
+}
+
+@keyframes repopulse-particle-reverse {
+    0% {
+        transform: translateX(0) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(-40px) scale(1);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-420px) scale(0.7);
+        opacity: 0;
+    }
+}
+
+@keyframes repopulse-particle-slow {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    85% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   FLOATING DATA CARDS
+========================================================= */
+
+@keyframes repopulse-float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -12px, 0);
+    }
+}
+
+/* =========================================================
+   SCANNING BEAM
+========================================================= */
+
+@keyframes repopulse-scan {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(620px);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   GRID GLOW
+========================================================= */
+
+@keyframes repopulse-grid-glow {
+    0%,
+    100% {
+        opacity: 0.08;
+    }
+
+    50% {
+        opacity: 0.16;
+    }
+}
+
+/* =========================================================
+   UTILITY CLASSES
+========================================================= */
+
+.animate-repopulse-grid {
+    animation: repopulse-grid 5s linear infinite;
+}
+
+.animate-repopulse-ring {
+    animation: repopulse-ring 5s ease-in-out infinite;
+}
+
+.animate-repopulse-spin {
+    animation: repopulse-spin 30s linear infinite;
+}
+
+.animate-repopulse-core {
+    animation: repopulse-core 2.5s ease-in-out infinite;
+}
+
+.animate-data-flow {
+    stroke-dasharray: 6 10;
+    animation: data-flow 3.5s linear infinite;
+}
+
+.animate-repopulse-particle {
+    animation: repopulse-particle 4s linear infinite;
+}
+
+.animate-repopulse-particle-reverse {
+    animation: repopulse-particle-reverse 4.5s linear infinite;
+}
+
+.animate-repopulse-particle-slow {
+    animation: repopulse-particle-slow 6s linear infinite;
+}
+
+.animate-repopulse-float {
+    animation: repopulse-float 5s ease-in-out infinite;
+}
+
+.animate-repopulse-scan {
+    animation: repopulse-scan 7s ease-in-out infinite;
+}
+
+.animate-repopulse-grid-glow {
+    animation: repopulse-grid-glow 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
 }
