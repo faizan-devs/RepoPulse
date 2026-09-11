@@ -19,13 +19,20 @@ const sections = [
     },
 ];
 
+const metrics = [
+    ['Health Score', '91', 'Repository health'],
+    ['Bus Factor', '4', 'Key contributors'],
+    ['Contributors', '42', 'Active participants'],
+    ['Activity', '+18%', 'Development trend'],
+];
+
 export default function DocsPage() {
     return (
-        <main className="min-h-screen bg-[#0a0a0a] text-white">
+        <main className="min-h-screen bg-[#080808] text-white">
             {/* Header */}
-            <header className="sticky top-0 z-50 border-b border-zinc-800 bg-[#0a0a0a]/95 backdrop-blur">
-                <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-                    <div className="flex items-center gap-8">
+            <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#080808]/90 backdrop-blur-xl">
+                <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 lg:px-8">
+                    <div className="flex items-center gap-5">
                         <Link href="/" className="flex items-center gap-2">
                             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-black">
                                 R
@@ -36,24 +43,31 @@ export default function DocsPage() {
                             </span>
                         </Link>
 
-                        <div className="hidden h-5 w-px bg-zinc-800 sm:block" />
+                        <div className="hidden h-5 w-px bg-white/10 sm:block" />
 
                         <span className="hidden text-sm text-zinc-500 sm:block">
                             Documentation
                         </span>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
+                        <Link
+                            href="/how-it-works"
+                            className="hidden text-sm text-zinc-500 transition hover:text-white md:block"
+                        >
+                            How it works
+                        </Link>
+
                         <Link
                             href="/"
-                            className="hidden text-sm text-zinc-500 transition hover:text-white sm:block"
+                            className="hidden text-sm text-zinc-500 transition hover:text-white md:block"
                         >
                             Home
                         </Link>
 
                         <Link
                             href="/dashboard"
-                            className="rounded-lg border border-zinc-700 px-4 py-2 text-sm font-medium transition hover:border-zinc-500 hover:bg-zinc-900"
+                            className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium transition hover:border-white/20 hover:bg-white/[0.08]"
                         >
                             Dashboard
                         </Link>
@@ -61,13 +75,26 @@ export default function DocsPage() {
                 </div>
             </header>
 
-            <div className="mx-auto flex max-w-7xl">
+            <div className="mx-auto flex max-w-[1440px]">
                 {/* Sidebar */}
-                <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 overflow-y-auto border-r border-zinc-800 px-6 py-10 lg:block">
+                <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 overflow-y-auto border-r border-white/[0.08] px-5 py-10 lg:block">
+                    <div className="mb-8 rounded-xl border border-white/10 bg-white/[0.025] p-4">
+                        <div className="flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                            <span className="text-xs font-medium text-zinc-400">
+                                Documentation
+                            </span>
+                        </div>
+
+                        <p className="mt-3 text-xs leading-5 text-zinc-600">
+                            Repository intelligence and engineering signals.
+                        </p>
+                    </div>
+
                     <nav className="space-y-8">
                         {sections.map((section) => (
                             <div key={section.title}>
-                                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-600">
+                                <h3 className="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-700">
                                     {section.title}
                                 </h3>
 
@@ -78,12 +105,12 @@ export default function DocsPage() {
                                             href={`#${item
                                                 .toLowerCase()
                                                 .replaceAll(' ', '-')}`}
-                                            className={`block rounded-md px-3 py-2 text-sm transition ${
+                                            className={`block rounded-lg px-3 py-2 text-sm transition ${
                                                 index === 0 &&
                                                 section.title ===
                                                     'Getting Started'
-                                                    ? 'bg-zinc-900 text-white'
-                                                    : 'text-zinc-500 hover:bg-zinc-900 hover:text-white'
+                                                    ? 'bg-white/[0.07] text-white'
+                                                    : 'text-zinc-500 hover:bg-white/[0.04] hover:text-zinc-200'
                                             }`}
                                         >
                                             {item}
@@ -95,46 +122,86 @@ export default function DocsPage() {
                     </nav>
                 </aside>
 
-                {/* Documentation */}
-                <article className="min-w-0 flex-1 px-6 py-12 lg:px-16 lg:py-16">
-                    <div className="mx-auto max-w-3xl">
-                        {/* Introduction */}
+                {/* Main */}
+                <article className="min-w-0 flex-1 px-5 py-10 sm:px-8 lg:px-14 lg:py-14">
+                    <div className="mx-auto max-w-4xl">
+                        {/* Intro */}
                         <section id="introduction">
-                            <p className="text-sm font-medium uppercase tracking-widest text-zinc-600">
-                                Documentation
-                            </p>
+                            <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-600">
+                                <span>Documentation</span>
+                                <span>/</span>
+                                <span className="text-zinc-400">
+                                    Introduction
+                                </span>
+                            </div>
 
-                            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-                                RepoPulse
+                            <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">
+                                Repository intelligence,
+                                <br />
+                                <span className="text-zinc-500">
+                                    explained clearly.
+                                </span>
                             </h1>
 
-                            <p className="mt-6 text-lg leading-8 text-zinc-400">
-                                RepoPulse is a repository intelligence platform
-                                that analyzes GitHub repositories and turns
-                                engineering activity into useful signals.
+                            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+                                RepoPulse analyzes GitHub repositories and turns
+                                engineering activity into structured signals
+                                that help developers understand project health.
                             </p>
+
+                            {/* Status */}
+                            <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3">
+                                {[
+                                    ['Source', 'GitHub'],
+                                    ['Analysis', 'Repository signals'],
+                                    ['Output', 'Engineering insights'],
+                                ].map(([label, value]) => (
+                                    <div
+                                        key={label}
+                                        className="bg-[#0c0c0c] p-5"
+                                    >
+                                        <p className="text-[10px] uppercase tracking-widest text-zinc-700">
+                                            {label}
+                                        </p>
+
+                                        <p className="mt-2 text-sm text-zinc-300">
+                                            {value}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </section>
 
                         {/* Quickstart */}
                         <section
                             id="quickstart"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                01 / GETTING STARTED
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Quickstart
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
-                                Get started by connecting a GitHub repository
-                                and letting RepoPulse analyze its activity.
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
+                                Connect a GitHub repository and allow RepoPulse
+                                to analyze its repository activity.
                             </p>
 
-                            <div className="mt-6 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
-                                <div className="border-b border-zinc-800 px-4 py-3 text-xs text-zinc-600">
-                                    Terminal
+                            <div className="mt-7 overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c]">
+                                <div className="flex items-center justify-between border-b border-white/[0.08] px-5 py-3">
+                                    <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-700">
+                                        Terminal
+                                    </span>
+
+                                    <span className="text-[10px] text-zinc-700">
+                                        pnpm
+                                    </span>
                                 </div>
 
-                                <pre className="overflow-x-auto p-5 text-sm leading-7 text-zinc-400">
+                                <pre className="overflow-x-auto p-5 font-mono text-sm leading-7 text-zinc-400">
                                     <code>{`git clone https://github.com/your-username/your-repository.git
 
 cd your-repository
@@ -146,118 +213,144 @@ pnpm dev`}</code>
                             </div>
                         </section>
 
-                        {/* Repository Health */}
+                        {/* Health */}
                         <section
                             id="repository-health"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                02 / CORE CONCEPT
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Repository Health
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
                                 Repository Health provides a high-level view of
                                 how actively maintained and healthy a repository
                                 appears to be.
                             </p>
 
-                            <div className="mt-6 rounded-xl border border-zinc-800 bg-[#0c0c0c] p-6">
-                                <div className="flex items-end justify-between">
-                                    <div>
-                                        <p className="text-sm text-zinc-500">
-                                            Example health score
+                            <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+                                {metrics.map(([name, value, detail]) => (
+                                    <div
+                                        key={name}
+                                        className="bg-[#0c0c0c] p-5"
+                                    >
+                                        <p className="text-xs text-zinc-600">
+                                            {name}
                                         </p>
 
-                                        <p className="mt-2 text-4xl font-semibold">
-                                            87
-                                            <span className="text-lg text-zinc-600">
-                                                /100
-                                            </span>
+                                        <p className="mt-3 text-3xl font-semibold tracking-tight">
+                                            {value}
+                                        </p>
+
+                                        <p className="mt-1 text-[11px] text-zinc-700">
+                                            {detail}
                                         </p>
                                     </div>
-
-                                    <span className="rounded-full border border-zinc-800 px-3 py-1 text-xs text-zinc-400">
-                                        Healthy
-                                    </span>
-                                </div>
+                                ))}
                             </div>
                         </section>
 
                         {/* Bus Factor */}
                         <section
                             id="bus-factor"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                03 / CORE CONCEPT
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Bus Factor
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
                                 Bus factor describes how concentrated important
                                 repository knowledge is among contributors. A
-                                low bus factor can indicate a dependency on a
+                                low bus factor can indicate dependency on a
                                 small number of people.
                             </p>
 
-                            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                                <div className="rounded-xl border border-zinc-800 p-5">
-                                    <p className="text-sm text-zinc-500">
-                                        Example
-                                    </p>
+                            <div className="mt-8 rounded-2xl border border-white/10 bg-[#0c0c0c] p-6">
+                                <div className="flex items-end justify-between">
+                                    <div>
+                                        <p className="text-xs text-zinc-600">
+                                            Key contributors
+                                        </p>
 
-                                    <p className="mt-2 text-2xl font-semibold">
-                                        4
-                                    </p>
+                                        <p className="mt-2 text-4xl font-semibold">
+                                            4
+                                        </p>
+                                    </div>
 
-                                    <p className="mt-1 text-xs text-zinc-600">
-                                        Key contributors
-                                    </p>
+                                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+                                        Good distribution
+                                    </span>
                                 </div>
 
-                                <div className="rounded-xl border border-zinc-800 p-5">
-                                    <p className="text-sm text-zinc-500">
-                                        Signal
-                                    </p>
-
-                                    <p className="mt-2 text-2xl font-semibold">
-                                        Good
-                                    </p>
-
-                                    <p className="mt-1 text-xs text-zinc-600">
-                                        Knowledge distribution
-                                    </p>
+                                <div className="mt-8 flex h-20 items-end gap-2">
+                                    {[
+                                        45, 70, 58, 82, 52, 66, 40, 75, 60, 88,
+                                    ].map((height, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex-1 rounded-t-sm bg-zinc-800"
+                                            style={{
+                                                height: `${height}%`,
+                                            }}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </section>
 
-                        {/* Engineering Signals */}
+                        {/* Engineering signals */}
                         <section
                             id="engineering-signals"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                04 / CORE CONCEPT
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Engineering Signals
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
                                 RepoPulse combines repository activity into
                                 signals that can help developers identify
                                 potential areas of concern.
                             </p>
 
-                            <div className="mt-6 space-y-3">
+                            <div className="mt-8 space-y-2">
                                 {[
                                     'Contributor distribution',
                                     'Commit activity',
                                     'Issue activity',
                                     'Pull request activity',
                                     'Repository maintenance',
-                                ].map((signal) => (
+                                ].map((signal, index) => (
                                     <div
                                         key={signal}
-                                        className="rounded-lg border border-zinc-800 px-5 py-4 text-sm text-zinc-400"
+                                        className="flex items-center justify-between rounded-xl border border-white/10 bg-[#0c0c0c] px-5 py-4"
                                     >
-                                        {signal}
+                                        <div className="flex items-center gap-4">
+                                            <span className="font-mono text-xs text-zinc-700">
+                                                0{index + 1}
+                                            </span>
+
+                                            <span className="text-sm text-zinc-300">
+                                                {signal}
+                                            </span>
+                                        </div>
+
+                                        <span className="text-xs text-zinc-700">
+                                            Signal
+                                        </span>
                                     </div>
                                 ))}
                             </div>
@@ -266,40 +359,40 @@ pnpm dev`}</code>
                         {/* Connect GitHub */}
                         <section
                             id="connect-github"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                05 / GUIDE
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Connect GitHub
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
-                                Connect your GitHub account to give RepoPulse
-                                access to the repository information required
-                                for analysis.
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
+                                Connect your GitHub account to provide RepoPulse
+                                with the repository information required for
+                                analysis.
                             </p>
 
-                            <div className="mt-6 rounded-xl border border-zinc-800 bg-[#0c0c0c] p-6">
-                                <ol className="space-y-4 text-sm text-zinc-500">
-                                    <li>
-                                        <span className="mr-3 font-mono text-zinc-600">
-                                            01
-                                        </span>
-                                        Authenticate with GitHub.
-                                    </li>
+                            <div className="mt-8 rounded-2xl border border-white/10 bg-[#0c0c0c] p-6">
+                                <ol className="space-y-5">
+                                    {[
+                                        'Authenticate with GitHub.',
+                                        'Select a repository.',
+                                        'Start repository analysis.',
+                                    ].map((step, index) => (
+                                        <li
+                                            key={step}
+                                            className="flex gap-4 text-sm text-zinc-400"
+                                        >
+                                            <span className="font-mono text-xs text-zinc-700">
+                                                0{index + 1}
+                                            </span>
 
-                                    <li>
-                                        <span className="mr-3 font-mono text-zinc-600">
-                                            02
-                                        </span>
-                                        Select a repository.
-                                    </li>
-
-                                    <li>
-                                        <span className="mr-3 font-mono text-zinc-600">
-                                            03
-                                        </span>
-                                        Start repository analysis.
-                                    </li>
+                                            <span>{step}</span>
+                                        </li>
+                                    ))}
                                 </ol>
                             </div>
                         </section>
@@ -307,13 +400,17 @@ pnpm dev`}</code>
                         {/* Analyze */}
                         <section
                             id="analyze-a-repository"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                06 / GUIDE
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Analyze a Repository
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
                                 After selecting a repository, RepoPulse collects
                                 the relevant repository signals and presents
                                 them through the dashboard.
@@ -323,14 +420,18 @@ pnpm dev`}</code>
                         {/* Metrics */}
                         <section
                             id="understand-metrics"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                07 / GUIDE
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Understand Metrics
                             </h2>
 
-                            <div className="mt-6 overflow-hidden rounded-xl border border-zinc-800">
-                                <div className="grid grid-cols-2 border-b border-zinc-800 bg-zinc-950 px-5 py-3 text-xs uppercase tracking-wider text-zinc-600">
+                            <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+                                <div className="grid grid-cols-2 bg-[#101010] px-5 py-3 text-[10px] uppercase tracking-widest text-zinc-700">
                                     <span>Metric</span>
                                     <span>Purpose</span>
                                 </div>
@@ -355,7 +456,7 @@ pnpm dev`}</code>
                                 ].map(([metric, purpose]) => (
                                     <div
                                         key={metric}
-                                        className="grid grid-cols-2 border-b border-zinc-800 px-5 py-4 text-sm last:border-0"
+                                        className="grid grid-cols-2 border-t border-white/[0.08] px-5 py-4 text-sm"
                                     >
                                         <span className="text-zinc-300">
                                             {metric}
@@ -372,44 +473,50 @@ pnpm dev`}</code>
                         {/* API */}
                         <section
                             id="api"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">API</h2>
+                            <p className="font-mono text-xs text-zinc-700">
+                                08 / REFERENCE
+                            </p>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
+                            <h2 className="mt-4 text-2xl font-semibold">API</h2>
+
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
                                 RepoPulse will expose API endpoints for
                                 repository analysis, metrics and engineering
                                 signals.
                             </p>
 
-                            <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-950 p-5 font-mono text-sm">
-                                <div className="text-zinc-500">
-                                    GET{' '}
-                                    <span className="text-zinc-300">
-                                        /api/repositories/:id
-                                    </span>
-                                </div>
+                            <div className="mt-7 rounded-xl border border-white/10 bg-[#0c0c0c] p-5 font-mono text-sm">
+                                <span className="text-zinc-600">GET</span>{' '}
+                                <span className="text-zinc-300">
+                                    /api/repositories/:id
+                                </span>
                             </div>
                         </section>
 
-                        {/* Data Model */}
+                        {/* Data model */}
                         <section
                             id="data-model"
-                            className="mt-16 border-t border-zinc-800 pt-12"
+                            className="mt-20 border-t border-white/[0.08] pt-14"
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <p className="font-mono text-xs text-zinc-700">
+                                09 / REFERENCE
+                            </p>
+
+                            <h2 className="mt-4 text-2xl font-semibold">
                                 Data Model
                             </h2>
 
-                            <p className="mt-4 leading-7 text-zinc-500">
+                            <p className="mt-4 max-w-2xl leading-7 text-zinc-500">
                                 Repository, contributor, activity and analysis
                                 data will be represented through a structured
                                 data model as the platform evolves.
                             </p>
                         </section>
 
-                        {/* Footer navigation */}
-                        <div className="mt-20 flex justify-between border-t border-zinc-800 pt-8">
+                        {/* Bottom nav */}
+                        <div className="mt-20 flex items-center justify-between border-t border-white/[0.08] pt-8">
                             <Link
                                 href="/how-it-works"
                                 className="text-sm text-zinc-500 transition hover:text-white"
@@ -421,67 +528,40 @@ pnpm dev`}</code>
                                 href="/dashboard"
                                 className="text-sm text-zinc-500 transition hover:text-white"
                             >
-                                Open Dashboard →
+                                Dashboard →
                             </Link>
                         </div>
                     </div>
                 </article>
 
                 {/* Right TOC */}
-                <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-52 shrink-0 py-12 xl:block">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">
+                <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-56 shrink-0 py-12 pr-6 xl:block">
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-700">
                         On this page
                     </p>
 
-                    <nav className="mt-4 space-y-3 border-l border-zinc-800 pl-4 text-xs">
-                        <a
-                            href="#introduction"
-                            className="block text-zinc-400 hover:text-white"
-                        >
-                            Introduction
-                        </a>
-
-                        <a
-                            href="#quickstart"
-                            className="block text-zinc-600 hover:text-white"
-                        >
-                            Quickstart
-                        </a>
-
-                        <a
-                            href="#repository-health"
-                            className="block text-zinc-600 hover:text-white"
-                        >
-                            Repository Health
-                        </a>
-
-                        <a
-                            href="#bus-factor"
-                            className="block text-zinc-600 hover:text-white"
-                        >
-                            Bus Factor
-                        </a>
-
-                        <a
-                            href="#engineering-signals"
-                            className="block text-zinc-600 hover:text-white"
-                        >
-                            Engineering Signals
-                        </a>
-
-                        <a
-                            href="#understand-metrics"
-                            className="block text-zinc-600 hover:text-white"
-                        >
-                            Metrics
-                        </a>
-
-                        <a
-                            href="#api"
-                            className="block text-zinc-600 hover:text-white"
-                        >
-                            API
-                        </a>
+                    <nav className="mt-5 space-y-3 border-l border-white/[0.08] pl-4 text-xs">
+                        {[
+                            ['Introduction', 'introduction'],
+                            ['Quickstart', 'quickstart'],
+                            ['Repository Health', 'repository-health'],
+                            ['Bus Factor', 'bus-factor'],
+                            ['Engineering Signals', 'engineering-signals'],
+                            ['Metrics', 'understand-metrics'],
+                            ['API', 'api'],
+                        ].map(([label, id], index) => (
+                            <a
+                                key={id}
+                                href={`#${id}`}
+                                className={`block transition hover:text-white ${
+                                    index === 0
+                                        ? 'text-zinc-300'
+                                        : 'text-zinc-600'
+                                }`}
+                            >
+                                {label}
+                            </a>
+                        ))}
                     </nav>
                 </aside>
             </div>
