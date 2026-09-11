@@ -1,42 +1,11 @@
 import Link from 'next/link';
+import Navbar from '../components/navbar';
 
 export default function Home() {
     return (
         <main className="min-h-screen bg-[#0a0a0a] text-white">
             {/* Navbar */}
-            <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-                <div className="flex items-center gap-2">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-black">
-                        R
-                    </div>
-
-                    <span className="text-lg font-semibold tracking-tight">
-                        RepoPulse
-                    </span>
-                </div>
-
-                <div className="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
-                    <a href="#features" className="transition hover:text-white">
-                        Features
-                    </a>
-                    <a
-                        href="#how-it-works"
-                        className="transition hover:text-white"
-                    >
-                        How it works
-                    </a>
-                    <a href="#about" className="transition hover:text-white">
-                        About
-                    </a>
-                </div>
-
-                <Link
-                    href="/dashboard"
-                    className="rounded-lg border border-zinc-700 px-4 py-2 text-sm font-medium transition hover:border-zinc-500 hover:bg-zinc-900"
-                >
-                    Open Dashboard
-                </Link>
-            </nav>
+            <Navbar />
 
             {/* Hero */}
             <section className="mx-auto flex max-w-7xl flex-col items-center px-6 pb-24 pt-24 text-center lg:px-8 lg:pb-32 lg:pt-32">
