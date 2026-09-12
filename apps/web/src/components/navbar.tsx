@@ -17,13 +17,6 @@ export default function Navbar() {
             {/* Navigation */}
             <div className="hidden items-center gap-8 text-sm md:flex">
                 <Link
-                    href="/"
-                    className="text-zinc-400 transition hover:text-white"
-                >
-                    Home
-                </Link>
-
-                <Link
                     href="/docs"
                     className="text-zinc-400 transition hover:text-white"
                 >
@@ -38,10 +31,10 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                    href="/about"
+                    href="#pricing"
                     className="text-zinc-400 transition hover:text-white"
                 >
-                    About
+                    Pricing
                 </Link>
             </div>
 
