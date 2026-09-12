@@ -79,7 +79,7 @@ export default function HowItWorksPage() {
 
             {/* Hero */}
             <section className="relative border-b border-white/[0.08]">
-                <div className="mx-auto max-w-7xl px-6 pb-20 pt-20 lg:px-8 lg:pb-28 lg:pt-28">
+                <div className="mx-auto max-w-7xl px-6 pb-24 pt-20 lg:px-8 lg:pb-28 lg:pt-20">
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-400">
                             <span className="font-mono text-zinc-600">
