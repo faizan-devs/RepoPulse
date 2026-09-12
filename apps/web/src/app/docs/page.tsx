@@ -75,7 +75,7 @@ export default function DocsPage() {
                 </div>
             </header>
 
-            <div className="mx-auto flex max-w-[1440px]">
+            <div className="mx-auto flex max-w-7xl">
                 {/* Sidebar */}
                 <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 overflow-y-auto border-r border-white/[0.08] px-5 py-10 lg:block">
                     <div className="mb-8 rounded-xl border border-white/10 bg-white/[0.025] p-4">
@@ -123,7 +123,7 @@ export default function DocsPage() {
                 </aside>
 
                 {/* Main */}
-                <article className="min-w-0 flex-1 px-5 py-10 sm:px-8 lg:px-14 lg:py-14">
+                <article className="min-w-0 flex-1 px-5 pt-20 pb-10 sm:px-8 lg:px-14 lg:pt-20 lg:pb-14">
                     <div className="mx-auto max-w-4xl">
                         {/* Intro */}
                         <section id="introduction">
