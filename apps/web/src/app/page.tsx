@@ -624,6 +624,140 @@ export default function Home() {
             </section>
 
             {/* =========================================================
+                PRICING
+            ========================================================= */}
+            <section
+                id="pricing"
+                className="border-b border-white/[0.08] bg-[#0a0a0a] py-28 lg:py-32 scroll-mt-8"
+            >
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="mx-auto max-w-2xl text-center">
+                        <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-700">
+                            Pricing
+                        </p>
+
+                        <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Start simple. Scale when you need to.
+                        </h2>
+
+                        <p className="mt-5 text-sm leading-7 text-zinc-500">
+                            Use RepoPulse for free while you explore your
+                            repositories. Paid plans are designed for deeper
+                            analysis and team workflows.
+                        </p>
+                    </div>
+
+                    <div className="mx-auto mt-14 grid max-w-5xl gap-4 md:grid-cols-3">
+                        {[
+                            {
+                                name: 'Free',
+                                price: '$0',
+                                description: 'For exploring repository health.',
+                                features: [
+                                    '1 repository',
+                                    'Core health signals',
+                                    'Contributor insights',
+                                ],
+                                action: 'Get started',
+                                href: '/dashboard',
+                            },
+                            {
+                                name: 'Pro',
+                                price: '$19',
+                                description:
+                                    'For engineers who want deeper insight.',
+                                features: [
+                                    'More repositories',
+                                    'Advanced analytics',
+                                    'Historical activity trends',
+                                ],
+                                action: 'Coming soon',
+                                href: '/dashboard',
+                                featured: true,
+                            },
+                            {
+                                name: 'Team',
+                                price: 'Custom',
+                                description:
+                                    'For teams managing multiple codebases.',
+                                features: [
+                                    'Team workspaces',
+                                    'Shared repository insights',
+                                    'Organization-level visibility',
+                                ],
+                                action: 'Talk to us',
+                                href: '/docs',
+                            },
+                        ].map((plan) => (
+                            <div
+                                key={plan.name}
+                                className={`relative flex flex-col rounded-2xl border p-7 ${
+                                    plan.featured
+                                        ? 'border-white/25 bg-white/[0.06] shadow-[0_0_60px_rgba(255,255,255,0.04)]'
+                                        : 'border-white/10 bg-[#09090b]'
+                                }`}
+                            >
+                                {plan.featured && (
+                                    <span className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/[0.08] px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-zinc-300">
+                                        Popular
+                                    </span>
+                                )}
+
+                                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                                    {plan.name}
+                                </p>
+
+                                <div className="mt-7 flex items-end gap-2">
+                                    <span className="text-4xl font-semibold tracking-tight">
+                                        {plan.price}
+                                    </span>
+                                    {plan.price !== 'Custom' && (
+                                        <span className="pb-1 text-xs text-zinc-600">
+                                            / month
+                                        </span>
+                                    )}
+                                </div>
+
+                                <p className="mt-3 min-h-12 text-sm leading-6 text-zinc-500">
+                                    {plan.description}
+                                </p>
+
+                                <div className="mt-8 space-y-3 border-t border-white/[0.08] pt-7">
+                                    {plan.features.map((feature) => (
+                                        <div
+                                            key={feature}
+                                            className="flex items-center gap-3 text-sm text-zinc-400"
+                                        >
+                                            <span className="flex h-4 w-4 items-center justify-center rounded-full border border-white/15 text-[9px] text-zinc-300">
+                                                ✓
+                                            </span>
+                                            {feature}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <Link
+                                    href={plan.href}
+                                    className={`mt-8 inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition ${
+                                        plan.featured
+                                            ? 'bg-white text-black hover:bg-zinc-200'
+                                            : 'border border-white/10 bg-white/[0.03] text-zinc-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white'
+                                    }`}
+                                >
+                                    {plan.action} →
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="mt-8 text-center text-xs text-zinc-700">
+                        Pricing is an early product placeholder and can be
+                        adjusted before billing is enabled.
+                    </p>
+                </div>
+            </section>
+
+            {/* =========================================================
                 CTA
             ========================================================= */}
             <section className="relative overflow-hidden py-32">
@@ -671,13 +805,6 @@ export default function Home() {
                             className="transition hover:text-zinc-300"
                         >
                             How it works
-                        </Link>
-
-                        <Link
-                            href="/about"
-                            className="transition hover:text-zinc-300"
-                        >
-                            About
                         </Link>
 
                         <Link
