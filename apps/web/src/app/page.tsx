@@ -209,7 +209,7 @@ export default function Home() {
                 <div className="relative z-10">
                     <Navbar />
 
-                    <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pt-24 text-center lg:pt-28">
+                    <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pt-20 text-center lg:pt-20">
                         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.7)]" />
                             GitHub repository intelligence
