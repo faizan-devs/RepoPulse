@@ -1,3 +1,8 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+
 const repositories = [
     {
         name: 'repopulse',
@@ -24,6 +29,8 @@ const repositories = [
 const activityData = [42, 58, 47, 72, 61, 80, 68, 86, 74, 91, 82, 96];
 
 export default function DashboardPage() {
+    const [workspaceOpen, setWorkspaceOpen] = useState(false);
+
     return (
         <main className="min-h-screen bg-[#09090b] text-white">
             <div className="flex min-h-screen">
@@ -34,9 +41,13 @@ export default function DashboardPage() {
                     {/* Logo */}
                     <div className="flex h-16 items-center border-b border-zinc-800/80 px-5">
                         <div className="flex items-center gap-2.5">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-black">
+                            <Link
+                                href="/"
+                                aria-label="Go to RepoPulse home"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-black transition hover:bg-zinc-200"
+                            >
                                 R
-                            </div>
+                            </Link>
 
                             <div>
                                 <p className="text-sm font-semibold tracking-tight">
@@ -51,8 +62,14 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Workspace */}
-                    <div className="border-b border-zinc-800/80 p-3">
-                        <button className="flex w-full items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-2.5 text-left">
+                    <div className="relative border-b border-zinc-800/80 p-3">
+                        <button
+                            type="button"
+                            onClick={() => setWorkspaceOpen((open) => !open)}
+                            aria-expanded={workspaceOpen}
+                            aria-haspopup="menu"
+                            className="flex w-full items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-2.5 text-left transition hover:border-zinc-700 hover:bg-zinc-900"
+                        >
                             <div>
                                 <p className="text-xs text-zinc-500">
                                     Workspace
@@ -62,8 +79,39 @@ export default function DashboardPage() {
                                 </p>
                             </div>
 
-                            <span className="text-xs text-zinc-600">⌄</span>
+                            <span
+                                className={`text-xs text-zinc-600 transition ${workspaceOpen ? 'rotate-180' : ''}`}
+                            >
+                                ⌄
+                            </span>
                         </button>
+
+                        {workspaceOpen && (
+                            <div
+                                role="menu"
+                                className="absolute left-3 right-3 top-[calc(100%-0.25rem)] z-50 rounded-lg border border-zinc-800 bg-[#111113] p-1 shadow-2xl"
+                            >
+                                <button
+                                    type="button"
+                                    role="menuitem"
+                                    onClick={() => setWorkspaceOpen(false)}
+                                    className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm text-zinc-200 transition hover:bg-zinc-900"
+                                >
+                                    <span>Personal Workspace</span>
+                                    <span className="text-xs text-zinc-600">
+                                        Current
+                                    </span>
+                                </button>
+                                <button
+                                    type="button"
+                                    role="menuitem"
+                                    onClick={() => setWorkspaceOpen(false)}
+                                    className="w-full rounded-md px-3 py-2 text-left text-sm text-zinc-500 transition hover:bg-zinc-900 hover:text-zinc-200"
+                                >
+                                    + Create workspace
+                                </button>
+                            </div>
+                        )}
                     </div>
 
                     {/* Navigation */}
@@ -137,9 +185,12 @@ export default function DashboardPage() {
                         </div>
 
                         <div className="flex items-center gap-3">
-                            <button className="hidden text-sm text-zinc-500 transition hover:text-white sm:block">
+                            <Link
+                                href="/docs"
+                                className="hidden text-sm text-zinc-500 transition hover:text-white sm:block"
+                            >
                                 Docs
-                            </button>
+                            </Link>
 
                             <button className="relative flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 text-sm text-zinc-500 transition hover:bg-zinc-900 hover:text-white">
                                 ♧
