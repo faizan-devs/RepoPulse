@@ -31,7 +31,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                    href="#pricing"
+                    href="/#pricing"
                     className="text-zinc-400 transition hover:text-white"
                 >
                     Pricing
